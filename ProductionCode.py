@@ -1,8 +1,11 @@
 #import pathlib.Path
+from typing import List, Dict
 
-def count_words(allLines):
+def count_words(all_lines):
     word_count = dict()
-    for line in allLines:
+    if not (type(all_lines) is list):
+            return word_count
+    for line in all_lines:
         messy_words = line.split(" ")
         for messy_word in messy_words:
             cleaner_word = messy_word.rstrip("""!@#$%^&*()-={}[]"';:,./?""")
